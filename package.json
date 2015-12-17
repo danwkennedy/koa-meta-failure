@@ -7,10 +7,14 @@
     "test": "NODE_ENV=test mocha ./test",
     "test-watch": "NODE_ENV=test mocha -w ./test"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "chai": "^3.4.1",
     "mocha": "^2.3.4"
-  }
+  },
+  "author": "Daniel Kennedy",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danwkennedy/koa-meta-failure"
+  },
+  "license": "MIT"
 }

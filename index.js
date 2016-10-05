@@ -4,8 +4,12 @@ module.exports = function *failureHandler(next) {
   try {
     yield next;
   } catch (err) {
-    this.status = err.status || 500;
-    
+    this.status = 500;
+
+    if (err.status >= 500 && err.status < 600) {
+      this.status = err.status;
+    }
+
     let response = {
       title: err.message
     };

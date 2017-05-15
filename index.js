@@ -1,13 +1,11 @@
-'use strict';
-
-module.exports = function *failureHandler(next) {
+module.exports = async function failureHandler(ctx, next) {
   try {
-    yield next;
+    await next();
   } catch (err) {
-    this.status = 500;
+    ctx.response.status = 500;
 
     if (err.status >= 500 && err.status < 600) {
-      this.status = err.status;
+      ctx.response.status = err.status;
     }
 
     let response = {
@@ -18,7 +16,7 @@ module.exports = function *failureHandler(next) {
       response.source = err.source.message;
     }
 
-    this.body = response;
-    this.app.emit('error', err, this);
+    ctx.response.body = response;
+    ctx.app.emit('error', err, this);
   }
 };

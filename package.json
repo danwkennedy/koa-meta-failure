@@ -3,13 +3,12 @@
   "version": "1.0.1",
   "description": "Adds failure metadata to a KOA response",
   "main": "index.js",
+  "engines" : { "node" : ">=7.6.0" },
   "scripts": {
-    "test": "NODE_ENV=test mocha ./test",
-    "test-watch": "NODE_ENV=test mocha -w ./test"
+    "test": "NODE_ENV=test jest"
   },
   "devDependencies": {
-    "chai": "^3.4.1",
-    "mocha": "^2.3.4"
+    "jest": "^20.0.1"
   },
   "author": "Daniel Kennedy",
   "repository": {
